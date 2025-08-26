@@ -13,7 +13,7 @@ export async function getAllNotes(_,res) {
 
 export async function getNoteById(req,res){
     try {
-        const note = await findById(res.params.id);
+        const note = await Note.findById(res.params.id);
         if(!note) return res.status(404).json({message:"Note not found"});
         res.json(note);
     } catch (error) {
